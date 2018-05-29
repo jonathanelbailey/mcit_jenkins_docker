@@ -25,14 +25,14 @@ if (store.getCredentials(domain).find { it.id == credentialsID } == null) {
   def secretText = new StringCredentialsImpl(
           CredentialsScope.GLOBAL,
           credentialsID,
-          InputJSON.credentials.description as String,
-          Secret.fromString(InputJSON.credentials.password ?: 'DUMMY')
+          env['CRED_DESCRIPTION'] as String,
+          Secret.fromString(env['CRED_PASSWORD'] ?: 'DUMMY')
   )
   store.addCredentials(domain, secretText)
 }
 
 // configure github plugin
 GitHubPluginConfig pluginConfig = GitHubPlugin.configuration()
-GitHubServerConfig serverConfig = new GitHubServerConfig(InputJSON.credentials.credentialsID)
+GitHubServerConfig serverConfig = new GitHubServerConfig(env['CREDENTIALS_ID'])
 pluginConfig.setConfigs([serverConfig])
 pluginConfig.save()

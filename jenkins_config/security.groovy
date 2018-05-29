@@ -10,8 +10,6 @@ import hudson.plugins.active_directory.*
 def instance = Jenkins.getInstance()
 
 def env = System.getenv()
-def inputFile = new File(env['CONFIG_VARS'])
-
 
 // **Uncomment the lines below to add a non-domain admin account**
 
