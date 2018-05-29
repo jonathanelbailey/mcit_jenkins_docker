@@ -14,7 +14,7 @@ String gitRepo = env['GIT_REPO']
 String gitRepoName = env['GIT_REPO_NAME']
 String credentialsId = env['CREDENTIALS_ID']
 
-Jenkins jenkins = Jenkins.instance // saves some typing
+Jenkins jenkins = Jenkins.getInstance() // saves some typing
 
 // Get the folder where this job should be
 def folder = jenkins.getItem(folderName)
