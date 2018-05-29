@@ -8,9 +8,9 @@ LABEL description="A dockerized jenkins server"
 
 ENV USERNAME=admin
 ENV PASSWORD=admin
-ENV GITHUB_TOKEN=replace
-ENV GITHUB_ADMIN_ADDRESS=
-ENV JENKINS_URL='http://127.0.0.1:8080'
+ENV GITHUB_TOKEN='replace'
+ENV GITHUB_ADMIN_ADDRESS='https://api.github.com'
+ENV JENKINS_URL='http://127.0.0.1:8080/jenkins/'
 ENV CREDENTIALS_ID='github'
 ENV CRED_DESCRIPTION='GitHub Token'
 ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
