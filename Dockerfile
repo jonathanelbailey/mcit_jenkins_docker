@@ -22,8 +22,6 @@ USER jenkins
 
 COPY ${CONFIG}/security.groovy ${CONFIG_INIT}/security.groovy
 COPY ${CONFIG}/github.groovy ${CONFIG_INIT}/github.groovy
-COPY ${CONFIG}/artifactory.groovy ${CONFIG_INIT}/artifactory.groovy
-COPY ${CONFIG}/docker.groovy ${CONFIG_INIT}/docker.groovy
 
 COPY plugins.txt ${CONFIG_REF}/plugins.txt
 RUN /usr/local/bin/install-plugins.sh < ${CONFIG_REF}/plugins.txt
