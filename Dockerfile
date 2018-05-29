@@ -6,9 +6,9 @@ LABEL email="j.bailey@ebsco.com"
 LABEL version="1.0.0"
 LABEL description="A dockerized jenkins server"
 
-ARG USERNAME=admin
-ARG PASSWORD=admin
-ARG GITHUB_TOKEN
+ENV USERNAME=admin
+ENV PASSWORD=admin
+ENV GITHUB_TOKEN=replace
 ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
 ENV JENKINS_OPTS="--prefix=/jenkins"
 ENV CONFIG_REF="/usr/share/jenkins/ref"
