@@ -24,7 +24,7 @@ RUN mkdir /var/cache/jenkins -p && chown jenkins:jenkins \
     /var/cache/jenkins 
 USER jenkins
 
-# COPY ${CONFIG}/security.groovy ${CONFIG_INIT}/security.groovy
+COPY ${CONFIG}/security.groovy ${CONFIG_INIT}/security.groovy
 # COPY ${CONFIG}/github.groovy ${CONFIG_INIT}/github.groovy
 
 # COPY plugins.txt ${CONFIG_REF}/plugins.txt
