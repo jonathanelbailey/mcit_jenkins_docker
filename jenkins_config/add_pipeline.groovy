@@ -20,7 +20,7 @@ Jenkins jenkins = Jenkins.getInstance() // saves some typing
 def folder = jenkins.getItem(folderName)
 // Create the folder if it doesn't exist
 if (folder == null) {
-  folder = jenkins.createProject(Folder.class, folderName)
+  folder = jenkins.createProject(Folder, folderName)
 }
 
 // Multibranch creation/update
@@ -31,7 +31,7 @@ if ( item != null ) {
   mbp = (WorkflowMultiBranchProject) item
 } else {
   // Create case
-  mbp = folder.createProject(WorkflowMultiBranchProject.class, jobName)
+  mbp = folder.createProject(WorkflowMultiBranchProject, jobName)
 }
 
 // Configure the script this MBP uses
