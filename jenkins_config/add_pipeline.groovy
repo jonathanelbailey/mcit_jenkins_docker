@@ -5,13 +5,14 @@ import jenkins.plugins.git.*
 import org.jenkinsci.plugins.workflow.multibranch.*
 import com.cloudbees.hudson.plugins.folder.*
 
+def env = System.getenv()
 // Bring some values in from ansible using the jenkins_script modules wierd "args" approach (these are not gstrings)
-String folderName = "$folderName"
-String jobName = "$jobName"
-String jobScript = "$jobScript"
-String gitRepo = "$gitRepo"
-String gitRepoName = "$gitRepoName"
-String credentialsId = "$credentialsId"
+String folderName = env['FOLDER_NAME']
+String jobName = env['JOB_NAME']
+String jobScript = env['JOB_SCRIPT']
+String gitRepo = env['GIT_REPO']
+String gitRepoName = env['GIT_REPO_NAME']
+String credentialsId = env['CREDENTIALS_ID']
 
 Jenkins jenkins = Jenkins.instance // saves some typing
 
