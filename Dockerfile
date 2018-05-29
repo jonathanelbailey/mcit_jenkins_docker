@@ -28,4 +28,4 @@ USER jenkins
 # COPY ${CONFIG}/github.groovy ${CONFIG_INIT}/github.groovy
 
 # COPY plugins.txt ${CONFIG_REF}/plugins.txt
-RUN /usr/local/bin/install-plugins.sh < ${CONFIG_REF}/plugins.txt
+# RUN /usr/local/bin/install-plugins.sh < ${CONFIG_REF}/plugins.txt
