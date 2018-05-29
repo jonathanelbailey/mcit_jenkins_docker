@@ -25,7 +25,7 @@ if (folder == null) {
 
 // Multibranch creation/update
 WorkflowMultiBranchProject mbp
-Item item = folder.getItem(jobName)
+def item = folder.getItem(jobName)
 if ( item != null ) {
   // Update case
   mbp = (WorkflowMultiBranchProject) item
