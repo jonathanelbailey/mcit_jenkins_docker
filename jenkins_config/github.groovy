@@ -9,18 +9,16 @@ import org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl
 import groovy.json.JsonSlurper
 
 def env = System.getenv()
-def inputFile = new File(env['CONFIG_VARS'])
-def InputJSON = new JsonSlurper().parseText(inputFile.text)
 
 // configure JENKINS_URL
 JenkinsLocationConfiguration jenkinsLocationConfiguration = JenkinsLocationConfiguration.get()
-jenkinsLocationConfiguration.adminAddress = InputJSON.jenkins.adminAddress
-jenkinsLocationConfiguration.setUrl(InputJSON.jenkins.url)
+jenkinsLocationConfiguration.adminAddress = env['GITHUB_ADMIN_ADDRESS']
+jenkinsLocationConfiguration.setUrl(env['JENKINS_URL'])
 jenkinsLocationConfiguration.save()
 
 // configure credentials
 
-def credentialsID = InputJSON.credentials.credentialsID
+def credentialsID = env['CREDENTIALS_ID']
 def domain = Domain.global()
 def store = jenkins.model.Jenkins.instance.getExtensionList('com.cloudbees.plugins.credentials.SystemCredentialsProvider')[0].getStore()
 if (store.getCredentials(domain).find { it.id == credentialsID } == null) {

@@ -11,16 +11,18 @@ def instance = Jenkins.getInstance()
 
 def env = System.getenv()
 def inputFile = new File(env['CONFIG_VARS'])
-def InputJSON = new JsonSlurper().parseText(inputFile.text)
 
-**Uncomment the lines below to add a non-domain admin account**
 
-def user = InputJSON.admin_account.user
-def pass = InputJSON.admin_account.pass
+// **Uncomment the lines below to add a non-domain admin account**
+
+def user = env['USERNAME']
+def pass = env['PASSWORD']
 
 def hudsonRealm = new HudsonPrivateSecurityRealm(false)
 hudsonRealm.createAccount(user, pass)
 
+// **Uncomment the lines below to add a domain account**
+// 
 // def hudsonRealm = new  ActiveDirectorySecurityRealm(
 //     InputJSON.active_directory.domain, 
 //     InputJSON.active_directory.site, 
