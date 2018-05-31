@@ -22,6 +22,12 @@ ENV CONFIG="jenkins_config"
 USER root
 RUN mkdir /var/cache/jenkins -p && chown jenkins:jenkins \
     /var/cache/jenkins 
+
+RUN apt-get update && apt-get install software-properties-common python-pip && \
+    apt-get install ansible && apt-get upgrade ansible
+
+RUN pip install jmespath
+
 USER jenkins
 
 COPY ${CONFIG}/security.groovy ${CONFIG_INIT}/security.groovy

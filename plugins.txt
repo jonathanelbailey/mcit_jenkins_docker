@@ -2,6 +2,7 @@ ace-editor
 active-directory
 ant
 ansible
+ansicolor
 antisamy-markup-formatter
 apache-httpcomponents-client-4-api
 artifactory
